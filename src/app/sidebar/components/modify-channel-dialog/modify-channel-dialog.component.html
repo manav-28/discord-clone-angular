@@ -1,0 +1,22 @@
+<form (submit)="modifyChannel()" [formGroup]="channelForm" class="dialog">
+  <div class="title">Modify the Channel</div>
+  <br />
+  <div class="form-item">
+    <label class="mb-2" for="server-name">Channel name</label>
+    <input
+      class="appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      formControlName="name"
+      id="server-name"
+      maxlength="50"
+      placeholder="
+      new-Channel"
+      type="text"
+    />
+  </div>
+</form>
+<footer class="dialog-footer">
+  <button (click)="close()" class="btn">Cancel</button>
+  <button (click)="modifyChannel()" class="btn btn-blue" type="submit">
+    Edit Channel
+  </button>
+</footer>

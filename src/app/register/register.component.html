@@ -1,0 +1,59 @@
+<div class="register">
+  <form [formGroup]="registerForm">
+    <span class="form-title"> Create an account</span>
+    <br />
+    <div *ngIf="!error.isSuccess" class="alert alert-danger" role="alert">
+      {{ error.message }}
+    </div>
+    <div class="form-item">
+      <label class="mb-2" for="email">e-mail</label>
+      <input
+        formControlName="email"
+        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="email"
+        type="email"
+      />
+      <span *ngIf="email && email.invalid && email.touched" class="mat-error"
+        >Invalid Email.</span
+      >
+    </div>
+    <br />
+    <div class="form-item">
+      <label class="mb-2" for="username"> username</label>
+      <input
+        formControlName="username"
+        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="username"
+        type="text"
+      />
+      <span
+        *ngIf="username && username.invalid && username.touched"
+        class="mat-error"
+      >
+        Must be at least 3 characters.</span
+      >
+    </div>
+    <br />
+    <div class="form-item">
+      <label class="mb-2" for="password">password</label>
+      <input
+        formControlName="password"
+        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="password"
+        type="password"
+      />
+      <span
+        *ngIf="password && password.invalid && password.touched"
+        class="mat-error"
+        >Must be 3 to 50 characters.</span
+      >
+    </div>
+    <br /><br />
+    <button class="btn form-btn" type="submit" (click)="register()">
+      Continue
+    </button>
+    <div class="form-to-login">
+      <a routerLink="/login">Already have an account?</a>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,11 @@
+<div class="people">
+  <div class="member-title">SERVER MEMBERS:</div>
+  <div *ngFor="let member of members" class="profile">
+    <img
+      alt="member_pic"
+      [src]="member.photoURL"
+      (error)="member.photoURL = defaultPhotoURL"
+    />
+    <span>{{ member.displayName }}</span>
+  </div>
+</div>

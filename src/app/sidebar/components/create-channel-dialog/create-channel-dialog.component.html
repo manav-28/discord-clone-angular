@@ -1,0 +1,51 @@
+<form (submit)="createChannel()" [formGroup]="channelForm" class="dialog">
+  <div class="title">Create a text room</div>
+  <br />
+  <div class="label">type of living room</div>
+  <label class="channel-choice" for="text">
+    <input formControlName="type" id="text" type="radio" value="text" />
+    <mat-icon style="font-style: italic">tag</mat-icon>
+    <div class="label-description">
+      <span class="label-description-main"> Text room</span>
+      <span class="label-description-sub">
+        Share images, GIFs, stickers, your opinions and your jokes.</span
+      >
+    </div>
+  </label>
+  <label class="channel-choice" for="audio">
+    <input formControlName="type" id="audio" type="radio" value="audio" />
+    <mat-icon>volume_up</mat-icon>
+    <div class="label-description">
+      <span class="label-description-main"> voice lounge</span>
+      <span class="label-description-sub">
+        Join your friends with voice, video and screen sharing.</span
+      >
+    </div>
+  </label>
+  <div
+    *ngIf="type && type.invalid && type.touched"
+    style="margin-top: 10px; text-align: left"
+  >
+    <span class="mat-error"> Please choose an option</span>
+  </div>
+
+  <br />
+  <div class="form-item">
+    <label class="mb-2" for="server-name"> Server name</label>
+    <input
+      class="appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      formControlName="name"
+      id="server-name"
+      maxlength="50"
+      placeholder="new-channel"
+      type="text"
+    />
+    <span *ngIf="name && name.invalid && name.touched" class="mat-error">
+      Must be 3 to 50 characters.</span
+    >
+  </div>
+</form>
+<footer class="dialog-footer">
+  <button (click)="close()" class="btn">Cancel</button>
+  <button (click)="createChannel()" class="btn btn-blue">Create a room</button>
+</footer>

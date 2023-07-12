@@ -1,0 +1,56 @@
+<div class="login">
+  <form [formGroup]="loginForm">
+    <span class="form-title">Welcome Back!</span>
+    <span class="form-sub-title">We are so excited to see you again!</span>
+    <br />
+    <div *ngIf="error" class="alert alert-danger" role="alert">
+      Invalid email or password.
+    </div>
+    <div class="form-item">
+      <label [ngClass]="{ 'label-danger': error }" class="mb-2" for="email"
+        >E-MAIL</label
+      >
+      <input
+        [ngClass]="{ 'input-danger': error }"
+        formControlName="email"
+        autocomplete="on"
+        class="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="email"
+        placeholder="Email"
+        type="email"
+      />
+    </div>
+    <br />
+    <div class="form-item">
+      <label [ngClass]="{ 'label-danger': error }" class="mb-2" for="password"
+        >PASSWORD</label
+      >
+      <input
+        [ngClass]="{ 'input-danger': error }"
+        formControlName="password"
+        autocomplete="on"
+        class="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="password"
+        placeholder="password"
+        type="password"
+      />
+    </div>
+    <div class="form-forgot">
+      <a href="">Forgot your password?</a>
+    </div>
+    <br />
+    <button (click)="googleAuth($event)" class="google-btn btn" type="button">
+      <img
+        alt="Google sign-in"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+      />
+      <span>Login with Google</span>
+    </button>
+    <br />
+    <button (click)="signIn()" class="btn form-btn">Login</button>
+    <div class="form-signup">
+      <span>Need an account ?</span>
+      <a routerLink="/register">Register</a>
+    </div>
+  </form>
+</div>

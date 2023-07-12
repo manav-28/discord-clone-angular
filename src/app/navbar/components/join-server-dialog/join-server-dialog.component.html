@@ -1,0 +1,35 @@
+<form [formGroup]="joinServerForm" class="dialog">
+  <div class="title">Join a server</div>
+  <div class="sub-title">
+    Enter an invite code below to join an existing server
+  </div>
+  <br />
+  <br />
+  <div class="form-item">
+    <label class="mb-2" for="server-name">invite code</label>
+    <input
+      class="appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      formControlName="code"
+      id="server-name"
+      maxlength="20"
+      type="text"
+    />
+    <span *ngIf="code && code.invalid && code.touched" class="mat-error"
+      >An invite code must be 20 characters long.</span
+    >
+    <span *ngIf="!isCodeValid" class="mat-error"
+      >The invite code is not valid!</span
+    >
+  </div>
+  <br />
+  <div class="dialog-info">
+    You can retrieve the code from a server by right clicking on it.
+  </div>
+</form>
+<br />
+<footer class="dialog-footer">
+  <button (click)="close()" class="btn">Feedback</button>
+  <button (click)="joinServer()" class="btn btn-blue" type="submit">
+    Join the server
+  </button>
+</footer>
